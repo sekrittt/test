@@ -26,7 +26,7 @@ recognizer.onresult = function (event) {
 function talk (text) {
     synth = window.speechSynthesis;
     utterance = new SpeechSynthesisUtterance(text);
-    synth.speak (utterance);
+    synth.speak(utterance);
 }
 function stop () {
     synth.pause();
