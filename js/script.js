@@ -11,10 +11,12 @@ recognizer.onresult = function (event) {
     var result = event.results[event.resultIndex];
     if (result.isFinal) {
         res = result[0].transcript;
-        addMessage(res, "user");
         resHandler = handler(res);
-        addMessage(resHandler, "system");
-        talk(resHandler);
+        if (resHandler !== undefined) {
+            addMessage(res, "user");
+            addMessage(resHandler, "system");
+            talk(resHandler);
+        }
     } else {
         console.log('Промежуточный результат: ', result[0].transcript);
     }
