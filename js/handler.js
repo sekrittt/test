@@ -86,7 +86,7 @@ function handler(task) {
         } else {
             answer = "Я вас не понял";
         }
-    } else if ((task.search("очистить") !== -1 || task.search("очисти") !== -1) && task.search("поле") !== -1 && task.search("сообщений") !== -1){
+    } else if ((task.search("очистить") !== -1 || task.search("очисти") !== -1) && ((task.search("поле") !== -1 && task.search("сообщений") !== -1) || (task.search("диалог") !== -1))){
         document.getElementById("chat").innerHTML = "";
         answer = "Очистил";
     } else if ((task.search("покажи") !== -1 || task.search("скажи") !== -1) && (task.search("статус") !== -1 || task.search("status") !== -1) && task.search("батареи") !== -1 || task.search("battery") !== -1){
