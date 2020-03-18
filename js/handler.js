@@ -92,9 +92,9 @@ function handler(task) {
     } else if ((task.search("покажи") !== -1 || task.search("скажи") !== -1) && (task.search("статус") !== -1 || task.search("status") !== -1) && task.search("батареи") !== -1 || task.search("battery") !== -1){
         answer = "Сейчас батарея "+getIsChargingInfo();
     } else if ((task.search("покажи") !== -1 || task.search("скажи") !== -1) && task.search("сколько") !== -1 && task.search("до") !== -1 && task.search("полной") !== -1 && task.search("зарядки") !== -1 && task.search("батареи") !== -1){
-        answer = "До полной зарядки "+getTimeCharging();
+        answer = "До полной зарядки батареи осталось "+getTimeCharging();
     } else if ((task.search("покажи") !== -1 || task.search("скажи") !== -1) && task.search("сколько") !== -1 && task.search("до") !== -1 && task.search("полной") !== -1 && task.search("разрядки") !== -1 && task.search("батареи") !== -1){
-        answer = "До полной разрядки "+getTimeDischarging();
+        answer = "До полной разрядки батареи осталось "+getTimeDischarging();
     } else if ((task.search("покажи") !== -1 || task.search("скажи") !== -1) && (task.search("заряд") !== -1 || task.search("charge") !== -1) && task.search("батареи") !== -1 || task.search("battery") !== -1){
         answer = "Заряд батареи равен "+getBatteryCharge();
     } else {
