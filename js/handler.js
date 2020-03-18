@@ -11,6 +11,8 @@ function handler(task) {
     var answer = "";
     //****************** Обработка ******************\\
     if (task.search("ясень") !== -1) {
+        task = task.replace("ясень", "");
+        task = task.trim();
         if (task.search("открыть") !== -1 || task.search("open") !== -1 || task.search("открой") !== -1) {
             if (task.search("гугл") !== -1 || task.search("google") !== -1) {
                 answer = "Уже открываю";
