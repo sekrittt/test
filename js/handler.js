@@ -97,6 +97,11 @@ function handler(task) {
         answer = "До полной разрядки батареи осталось "+getTimeDischarging();
     } else if ((task.search("покажи") !== -1 || task.search("скажи") !== -1) && (task.search("заряд") !== -1 || task.search("charge") !== -1) && task.search("батареи") !== -1 || task.search("battery") !== -1){
         answer = "Заряд батареи равен "+getBatteryCharge();
+    } else if ((task.search("перезагрузи") !== -1 || task.search("обнови") !== -1) && (task.search("страницу") !== -1)){
+        answer = "Секунду";
+        setTimeout(() => {
+            location.href = location.href;
+        }, 2000)
     } else {
         answer = "Я вас не понял";
     }
