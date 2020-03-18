@@ -23,6 +23,9 @@ function handler(task) {
         } else if (task.search("youtube") !== -1 || task.search("ютуб") !== -1) {
             answer = "Уже открываю";
             window.open("https://youtube.com/");
+        } else if (task.search("вики") !== -1 || task.search("википедию") !== -1) {
+            answer = "Уже открываю";
+            window.open("https://ru.wikipedia.org/wiki/");
         } else {
             answer = "Я вас не понял";
         }
@@ -82,6 +85,24 @@ function handler(task) {
                 task = task.replace(task[task.search(" ")], "+");
             }
             window.open("https://www.youtube.com/results?search_query="+task);
+            answer = "Уже ищю";
+        } else if ((task.search("в") !== -1 && task.search("вики") !== -1) || task.search("википедии") !== -1) {
+            task = task.replace("find", "");
+            task = task.replace("найти", "");
+            task = task.replace("найди", "");
+            task = task.replace("ищи", "");
+            task = task.replace("поищи", "");
+            task = task.replace("займись", "");
+            task = task.replace("поиском", "");
+            task = task.replace("поиск", "");
+            task = task.replace("в", "");
+            task = task.replace("википедии", "");
+            task = task.replace("вики", "");
+            task = task.trim();
+            while (task.search(" ") !== -1) {
+                task = task.replace(task[task.search(" ")], "+");
+            }
+            window.open("https://ru.wikipedia.org/w/index.php?title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F%3A%D0%9F%D0%BE%D0%B8%D1%81%D0%BA&go=%D0%9F%D0%B5%D1%80%D0%B5%D0%B9%D1%82%D0%B8&ns0=1&search="+task);
             answer = "Уже ищю";
         } else {
             answer = "Я вас не понял";
