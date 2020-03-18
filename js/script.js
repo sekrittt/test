@@ -34,9 +34,9 @@ function stop () {
 
 function addMessage(text, who) {
     if (who == "user") {
-        document.getElementById("chat").innerHTML += '<div class="w-100 row  d-flex justify-content-start"><div class="blue p-2 rounded-bottom rounded-right fa-pull-left w-25 white-text">'+text+'</div></div><br>'
+        document.getElementById("chat").innerHTML += '<div class="w-100 row  d-flex justify-content-start"><div class="blue p-2 rounded-bottom rounded-right fa-pull-left w-25 white-text"><span>'+text+'</span></div></div><br>'
     } else if (who == "system") {
-        document.getElementById("chat").innerHTML += '<div class="w-100 row d-flex justify-content-end"><div class="blue p-2 rounded-bottom rounded-left fa-pull-right w-25 white-text">'+text+'</div></div><br>'
+        document.getElementById("chat").innerHTML += '<div class="w-100 row d-flex justify-content-end"><div class="blue p-2 rounded-bottom rounded-left fa-pull-right w-25 white-text"><span>'+text+'</span></div></div><br>'
     }
 }
 

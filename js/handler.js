@@ -86,6 +86,17 @@ function handler(task) {
         } else {
             answer = "Я вас не понял";
         }
+    } else if ((task.search("очистить") !== -1 || task.search("очисти") !== -1) && task.search("поле") !== -1 && task.search("сообщений") !== -1){
+        document.getElementById("chat").innerHTML = "";
+        answer = "Очистил";
+    } else if ((task.search("покажи") !== -1 || task.search("скажи") !== -1) && (task.search("статус") !== -1 || task.search("status") !== -1) && task.search("батареи") !== -1 || task.search("battery") !== -1){
+        answer = "Сейчас батарея "+getIsChargingInfo();
+    } else if ((task.search("покажи") !== -1 || task.search("скажи") !== -1) && task.search("сколько") !== -1 && task.search("до") !== -1 && task.search("полной") !== -1 && task.search("зарядки") !== -1 && task.search("батареи") !== -1){
+        answer = "До полной зарядки "+getTimeCharging();
+    } else if ((task.search("покажи") !== -1 || task.search("скажи") !== -1) && task.search("сколько") !== -1 && task.search("до") !== -1 && task.search("полной") !== -1 && task.search("разрядки") !== -1 && task.search("батареи") !== -1){
+        answer = "До полной разрядки "+getTimeDischarging();
+    } else if ((task.search("покажи") !== -1 || task.search("скажи") !== -1) && (task.search("заряд") !== -1 || task.search("charge") !== -1) && task.search("батареи") !== -1 || task.search("battery") !== -1){
+        answer = "Заряд батареи равен "+getBatteryCharge();
     } else {
         answer = "Я вас не понял";
     }
