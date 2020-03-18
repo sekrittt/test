@@ -33,5 +33,5 @@ function time(t) {
     h = Math.floor(t/3600);
     m = Math.floor((t%3600)/60);
     s = Math.floor((t%3600)%60);
-    return h + "часов " + m + "минут " + s + "секунд";
+    return h + " часов " + m + " минут " + s + " секунд";
 }
