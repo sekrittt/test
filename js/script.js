@@ -23,6 +23,9 @@ recognizer.onresult = function (event) {
         console.log('Промежуточный результат: ', result[0].transcript);
     }
 };
+recognizer.onerror = () => {
+    
+}
 function talk (text) {
     synth = window.speechSynthesis;
     utterance = new SpeechSynthesisUtterance(text);
