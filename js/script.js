@@ -48,6 +48,6 @@ document.onkeydown = (e) => {
         speech();
     }
 }
-// setInterval(() => {
-//     speech();
-// }, 10000);
+setInterval(() => {
+    speech();
+}, 7000);
