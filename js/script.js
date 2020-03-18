@@ -17,6 +17,8 @@ recognizer.onresult = function (event) {
             addMessage(resHandler, "system");
             talk(resHandler);
         }
+        recognizer.stop();
+        speech();
     } else {
         console.log('Промежуточный результат: ', result[0].transcript);
     }
@@ -36,6 +38,10 @@ function addMessage(text, who) {
         document.getElementById("chat").innerHTML += '<div class="w-100 row d-flex justify-content-end"><div class="blue p-2 rounded-bottom rounded-left fa-pull-right w-25 white-text"><span>'+text+'</span></div></div><br>'
     }
 }
+recognizer.onend = () => {
+    recognizer.stop();
+    speech();
+}
 function speech() {
   recognizer.start();
 }
@@ -50,6 +56,7 @@ document.onkeydown = (e) => {
         speech();
     }
 }
-setInterval(() => {
-    speech();
-}, 7000);
+speech();
+// setInterval(() => {
+//     speech();
+// }, 7000);
