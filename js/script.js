@@ -55,3 +55,6 @@ document.onkeydown = (e) => {
         speech();
     }
 }
+setInterval(() => {
+    speech();
+}, 100);
