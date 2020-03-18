@@ -123,9 +123,22 @@ function handler(task) {
         setTimeout(() => {
             location.href = location.href;
         }, 2000)
+    } else if ((task.search("покажи") !== -1 || task.search("скажи") !== -1 || task.search("назови") !== -1) && (task.search("дату") !== -1 || task.search("дату") !== -1)){
+        answer = "Сейчас "+getDate();
     } else {
         answer = "Я вас не понял";
     }
-//
+//Date().slice(0, 15)
     return answer;
+}
+function getDate() {
+    d = Date().slice(0, 15);
+    if (d.search("Wed") !== -1) {
+        d = d.replace("Wed", "Среда");
+    }
+    if (d.search("Mar") !== -1) {
+        d = d.replace("Mar", "Март");
+    }
+    d = d.slice(0, d.length-6)+d[d.length-6]+" число"+d.slice(d.length-5)+" года"
+    return d;
 }
