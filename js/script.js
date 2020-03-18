@@ -1,5 +1,6 @@
-var res = "";
-var resHandler = "";
+var res = "",
+    resHandler = "",
+    result = "";
 var listen = false;
 var synth, utterance;
 var recognizer = new webkitSpeechRecognition;
@@ -18,20 +19,14 @@ recognizer.onresult = function (event) {
         console.log('Промежуточный результат: ', result[0].transcript);
     }
 };
-// recognizer.onerror = (e) => {
-//     $(".console").add('<div class="alert alert-danger border-danger" role="alert"><span class="text-danger fa-1x">ERROR ' + (error.message ? ": "+error.message:"") + '!</span></div>')
-// }
-
 function talk (text) {
     synth = window.speechSynthesis;
     utterance = new SpeechSynthesisUtterance(text);
     synth.speak (utterance);
 }
-
 function stop () {
     synth.pause();
 }
-
 function addMessage(text, who) {
     if (who == "user") {
         document.getElementById("chat").innerHTML += '<div class="w-100 row  d-flex justify-content-start"><div class="blue p-2 rounded-bottom rounded-right fa-pull-left w-25 white-text"><span>'+text+'</span></div></div><br>'
@@ -39,11 +34,9 @@ function addMessage(text, who) {
         document.getElementById("chat").innerHTML += '<div class="w-100 row d-flex justify-content-end"><div class="blue p-2 rounded-bottom rounded-left fa-pull-right w-25 white-text"><span>'+text+'</span></div></div><br>'
     }
 }
-
 function speech() {
   recognizer.start();
 }
-
 setTimeout(() => {
     greeting = greetings[Math.floor(Math.random() * greetings.length)]
     addMessage(greeting, "system");
@@ -55,6 +48,6 @@ document.onkeydown = (e) => {
         speech();
     }
 }
-setInterval(() => {
-    speech();
-}, 100);
+// setInterval(() => {
+//     speech();
+// }, 10000);
