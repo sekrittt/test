@@ -18,7 +18,6 @@ recognizer.onresult = function (event) {
             talk(resHandler);
         }
         recognizer.stop();
-        speech();
     } else {
         console.log('Промежуточный результат: ', result[0].transcript);
     }
