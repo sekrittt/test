@@ -22,6 +22,6 @@ video.addEventListener('play', ()=>{
     setInterval(async () => {
         const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
         const resizedDetections = faceapi.resizeResults(detections, displaySize)
-        faceapi.draw.drawDetectios(canvas, resizedDetections)
+        faceapi.draw.drawDetections(canvas, resizedDetections)
     }, 100)
 })
