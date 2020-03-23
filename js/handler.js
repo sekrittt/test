@@ -39,6 +39,9 @@ function handler(task) {
         } else if ((task.search("обнови") !== -1 || task.search("перезагрузи") !== -1) && task.search("страницу") !== -1) {
             answer = "Секунду";
             setTimeout(()=>{location.href=location.href},2000)
+        } else if ((task.search("очисти") !== -1 || task.search("очистить") !== -1) && (task.search("диалог") !== -1 || (task.search("поле") !== -1 && task.search("сообщений") !== -1))) {
+            answer = "Секунду";
+            setTimeout(()=>{location.href=location.href},2000)
         } else {
             answer = "Я вас не понял";
         }
