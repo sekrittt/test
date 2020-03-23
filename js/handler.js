@@ -40,8 +40,8 @@ function handler(task) {
             answer = "Секунду";
             setTimeout(()=>{location.href=location.href},2000)
         } else if ((task.search("очисти") !== -1 || task.search("очистить") !== -1) && (task.search("диалог") !== -1 || (task.search("поле") !== -1 && task.search("сообщений") !== -1))) {
-            answer = "Секунду";
-            setTimeout(()=>{location.href=location.href},2000)
+            document.getElementById("chat").innerHTML = "";
+            answer = "Очистил";
         } else {
             answer = "Я вас не понял";
         }
