@@ -36,11 +36,12 @@ function handler(task) {
             answer = search(task)
         } else if (task.search("покажи") !== -1 || task.search("скажи") !== -1 || task.search("батаре") !== -1) {
             answer = getInfoBattery(task);
+        } else if ((task.search("обнови") !== -1 || task.search("перезагрузи") !== -1) && task.search("страницу") !== -1) {
+            answer = "Секунду";
+            setTimeout(()=>{location.href=location.herf},2000)
         } else {
             answer = "Я вас не понял";
         }
+        return answer;
     }
-    
-//
-    return answer;
 }
