@@ -38,7 +38,7 @@ function handler(task) {
             answer = getInfoBattery(task);
         } else if ((task.search("обнови") !== -1 || task.search("перезагрузи") !== -1) && task.search("страницу") !== -1) {
             answer = "Секунду";
-            setTimeout(()=>{location.href=location.herf},2000)
+            setTimeout(()=>{location.href=location.href},2000)
         } else {
             answer = "Я вас не понял";
         }
