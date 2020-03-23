@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+canvas{
+    width: 600px;
+    height: 600px;
+    border: 5px solid black;
+}
+span{
+    position: absolute;
+    margin-top: 250px;
+    font-size: 72px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    color: green;
+}
+p{
+    font-size: 72px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
