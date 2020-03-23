@@ -31,7 +31,7 @@ function handler(task) {
         if (task.search("привет") !== -1 || task.search("hello") !== -1) {
             answer = answer = greetings[Math.floor(Math.random() * greetings.length)];
         } else if (task.search("открыть") !== -1 || task.search("open") !== -1 || task.search("открой") !== -1) {
-            answer = open(task);
+            answer = openWindow(task);
         } else if (task.search("найти") !== -1 || task.search("найди") !== -1 || task.search("ищи") !== -1 || task.search("поищи") !== -1 || task.search("find") !== -1 || (task.search("займись") !== -1 && task.search("поиском") !== -1) || task.search("поиск") !== -1) {
             answer = search(task)
         } else if (task.search("покажи") !== -1 || task.search("скажи") !== -1 || task.search("батаре") !== -1) {
