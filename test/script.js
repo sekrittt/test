@@ -14,7 +14,7 @@ function startVideo() {
         err => console.error(err)
     )
 }
-
+startVideo()
 video.addEventListener('play', ()=>{
     const canvas = faceapi.createCanvasFromMedia(video)
     document.body.append(canvas)
