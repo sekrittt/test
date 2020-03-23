@@ -1,4 +1,4 @@
-function open(task) {
+function openWindow(task) {
     if (task.search("гугл") !== -1 || task.search("google") !== -1) {
         answer = "Уже открываю";
         window.open("https://google.com/");
