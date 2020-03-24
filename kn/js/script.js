@@ -135,7 +135,7 @@ setInterval(()=>{
         }, 1000)
     } else if (cells[0][0][1] == 0 && cells[0][1][1] == 0 && cells[0][2][1] == 0) { // row 0
         printWhoWin("Бот")
-        drawFinishLine(100, 100, 500, 500);
+        drawFinishLine(100, 100, 500, 100);
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
