@@ -1,26 +1,27 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var borp = 1;
+var i = 0;
 var winer = false;
 var rs = 0;
 var ct = 0;
 var cc = 0;
 var cells = [
     [
-        [0, 2],
-        [0, 2],
-        [0, 2]
-    ],
+        [0, 2], // column 1
+        [0, 2], // column 2
+        [0, 2] // column 3
+    ], // row 1
     [
-        [0, 2],
-        [0, 2],
-        [0, 2]
-    ],
+        [0, 2], // column 1
+        [0, 2], // column 2
+        [0, 2] // column 3
+    ], // row 2
     [
-        [0, 2],
-        [0, 2],
-        [0, 2]
-    ]
+        [0, 2], // column 1
+        [0, 2], // column 2
+        [0, 2] // column 3
+    ] // row 3
 ];
 var sizeCells = [
     [
@@ -75,8 +76,13 @@ function randomSign(cell) {
 }
 
 function printWhoWin(name) {
-    $("#whoWin")[0].innerText = name+" победили!";
+    if (name == "Вы") {
+        $("#whoWin")[0].innerText = name+" победили!";
+    } else if (name == "Бот") {
+        $("#whoWin")[0].innerText = name+" победил!";
+    }
     winer = true;
+    location.href = location.href;
 }
 
 drawCell();
@@ -93,112 +99,112 @@ function clearCells() {
 
 setInterval(()=>{
     if (cells[0][0][1] == 1 && cells[0][1][1] == 1 && cells[0][2][1] == 1) { // row 0
-        printWhoWin("Крестики")
+        printWhoWin("Вы")
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
         }, 2000)
     } else if (cells[0][0][1] == 0 && cells[0][1][1] == 0 && cells[0][2][1] == 0) { // row 0
-        printWhoWin("Нолики")
+        printWhoWin("Бот")
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
         }, 2000)
     } else if (cells[1][0][1] == 1 && cells[1][1][1] == 1 && cells[1][2][1] == 1) { // row 1
-        printWhoWin("Крестики")
+        printWhoWin("Вы")
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
         }, 2000)
     } else if (cells[1][0][1] == 0 && cells[1][1][1] == 0 && cells[1][2][1] == 0) { // row 1
-        printWhoWin("Нолики")
+        printWhoWin("Бот")
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
         }, 2000)
     } else if (cells[2][0][1] == 1 && cells[2][1][1] == 1 && cells[2][2][1] == 1) { // row 2
-        printWhoWin("Крестики")
+        printWhoWin("Вы")
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
         }, 2000)
     } else if (cells[2][0][1] == 0 && cells[2][1][1] == 0 && cells[2][2][1] == 0) { // row 2
-        printWhoWin("Нолики")
+        printWhoWin("Бот")
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
         }, 2000)
     } else if (cells[0][0][1] == 1 && cells[1][0][1] == 1 && cells[2][0][1] == 1) { // column 0
-        printWhoWin("Крестики")
+        printWhoWin("Вы")
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
         }, 2000)
     } else if (cells[0][0][1] == 0 && cells[1][0][1] == 0 && cells[2][0][1] == 0) { // column 0
-        printWhoWin("Нолики")
+        printWhoWin("Бот")
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
         }, 2000)
     } else if (cells[0][1][1] == 1 && cells[1][1][1] == 1 && cells[2][1][1] == 1) { // column 1
-        printWhoWin("Крестики")
+        printWhoWin("Вы")
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
         }, 2000)
     } else if (cells[0][1][1] == 0 && cells[1][1][1] == 0 && cells[2][1][1] == 0) { // column 1
-        printWhoWin("Нолики")
+        printWhoWin("Бот")
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
         }, 2000)
     } else if (cells[0][2][1] == 1 && cells[1][2][1] == 1 && cells[2][2][1] == 1) { // column 2
-        printWhoWin("Крестики")
+        printWhoWin("Вы")
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
         }, 2000)
     } else if (cells[0][2][1] == 0 && cells[1][2][1] == 0 && cells[2][2][1] == 0) { // column 2
-        printWhoWin("Нолики")
+        printWhoWin("Бот")
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
         }, 2000)
     } else if (cells[0][0][1] == 1 && cells[1][1][1] == 1 && cells[2][2][1] == 1) { // diagonal 0, 1, 2
-        printWhoWin("Крестики")
+        printWhoWin("Вы")
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
         }, 2000)
     } else if (cells[0][0][1] == 0 && cells[1][1][1] == 0 && cells[2][2][1] == 0) { // diagonal 0, 1, 2
-        printWhoWin("Нолики")
+        printWhoWin("Бот")
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
         }, 2000)
     } else if (cells[2][0][1] == 1 && cells[1][1][1] == 1 && cells[0][2][1] == 1) { // diagonal 2, 1, 0
-        printWhoWin("Крестики")
+        printWhoWin("Вы")
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
         }, 2000)
     } else if (cells[2][0][1] == 0 && cells[1][1][1] == 0 && cells[0][2][1] == 0) { // diagonal 2, 1, 0
-        printWhoWin("Нолики")
+        printWhoWin("Бот")
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
