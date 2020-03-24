@@ -77,6 +77,13 @@ function randomSign(cell) {
     return rs;
 }
 
+function drawFinishLine(xStart, yStart, xEnd, yEnd) {
+    ctx.beginPath();
+    ctx.moveTo(xStart, yStart);
+    ctx.lineTo(xEnd, yEnd);
+    ctx.stroke();
+}
+
 function printWhoWin(name) {
     if (name == "Вы") {
         $("#whoWin")[0].innerText = name+" победили!";
@@ -106,6 +113,7 @@ function clearCells() {
 setInterval(()=>{
     if (cells[0][0][1] == 1 && cells[0][1][1] == 1 && cells[0][2][1] == 1) { // row 0
         printWhoWin("Вы")
+        drawFinishLine(100, 100, 500, 100);
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
@@ -113,6 +121,7 @@ setInterval(()=>{
         }, 2000)
     } else if (cells[0][0][1] == 0 && cells[0][1][1] == 0 && cells[0][2][1] == 0) { // row 0
         printWhoWin("Бот")
+        drawFinishLine(100, 100, 500, 500);
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
@@ -120,6 +129,7 @@ setInterval(()=>{
         }, 2000)
     } else if (cells[1][0][1] == 1 && cells[1][1][1] == 1 && cells[1][2][1] == 1) { // row 1
         printWhoWin("Вы")
+        drawFinishLine(100, 300, 500, 300);
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
@@ -127,6 +137,7 @@ setInterval(()=>{
         }, 2000)
     } else if (cells[1][0][1] == 0 && cells[1][1][1] == 0 && cells[1][2][1] == 0) { // row 1
         printWhoWin("Бот")
+        drawFinishLine(100, 300, 500, 300);
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
@@ -134,6 +145,7 @@ setInterval(()=>{
         }, 2000)
     } else if (cells[2][0][1] == 1 && cells[2][1][1] == 1 && cells[2][2][1] == 1) { // row 2
         printWhoWin("Вы")
+        drawFinishLine(100, 500, 500, 500);
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
@@ -141,6 +153,7 @@ setInterval(()=>{
         }, 2000)
     } else if (cells[2][0][1] == 0 && cells[2][1][1] == 0 && cells[2][2][1] == 0) { // row 2
         printWhoWin("Бот")
+        drawFinishLine(100, 500, 500, 500);
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
@@ -148,6 +161,7 @@ setInterval(()=>{
         }, 2000)
     } else if (cells[0][0][1] == 1 && cells[1][0][1] == 1 && cells[2][0][1] == 1) { // column 0
         printWhoWin("Вы")
+        drawFinishLine(100, 100, 100, 500);
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
@@ -155,6 +169,7 @@ setInterval(()=>{
         }, 2000)
     } else if (cells[0][0][1] == 0 && cells[1][0][1] == 0 && cells[2][0][1] == 0) { // column 0
         printWhoWin("Бот")
+        drawFinishLine(100, 100, 100, 500);
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
@@ -162,6 +177,7 @@ setInterval(()=>{
         }, 2000)
     } else if (cells[0][1][1] == 1 && cells[1][1][1] == 1 && cells[2][1][1] == 1) { // column 1
         printWhoWin("Вы")
+        drawFinishLine(300, 100, 300, 500);
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
@@ -169,6 +185,7 @@ setInterval(()=>{
         }, 2000)
     } else if (cells[0][1][1] == 0 && cells[1][1][1] == 0 && cells[2][1][1] == 0) { // column 1
         printWhoWin("Бот")
+        drawFinishLine(300, 100, 300, 500);
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
@@ -176,6 +193,7 @@ setInterval(()=>{
         }, 2000)
     } else if (cells[0][2][1] == 1 && cells[1][2][1] == 1 && cells[2][2][1] == 1) { // column 2
         printWhoWin("Вы")
+        drawFinishLine(500, 100, 500, 500);
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
@@ -183,6 +201,7 @@ setInterval(()=>{
         }, 2000)
     } else if (cells[0][2][1] == 0 && cells[1][2][1] == 0 && cells[2][2][1] == 0) { // column 2
         printWhoWin("Бот")
+        drawFinishLine(500, 100, 500, 500);
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
@@ -190,6 +209,7 @@ setInterval(()=>{
         }, 2000)
     } else if (cells[0][0][1] == 1 && cells[1][1][1] == 1 && cells[2][2][1] == 1) { // diagonal 0, 1, 2
         printWhoWin("Вы")
+        drawFinishLine(100, 100, 500, 500);
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
@@ -197,6 +217,7 @@ setInterval(()=>{
         }, 2000)
     } else if (cells[0][0][1] == 0 && cells[1][1][1] == 0 && cells[2][2][1] == 0) { // diagonal 0, 1, 2
         printWhoWin("Бот")
+        drawFinishLine(100, 100, 500, 500);
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
@@ -204,6 +225,7 @@ setInterval(()=>{
         }, 2000)
     } else if (cells[2][0][1] == 1 && cells[1][1][1] == 1 && cells[0][2][1] == 1) { // diagonal 2, 1, 0
         printWhoWin("Вы")
+        drawFinishLine(500, 500, 100, 100);
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
@@ -211,6 +233,7 @@ setInterval(()=>{
         }, 2000)
     } else if (cells[2][0][1] == 0 && cells[1][1][1] == 0 && cells[0][2][1] == 0) { // diagonal 2, 1, 0
         printWhoWin("Бот")
+        drawFinishLine(500, 500, 100, 100);
         setTimeout(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
