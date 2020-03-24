@@ -7,9 +7,22 @@
     <title>Крестики Нолики с Ботом</title>
 </head>
 <body>
-    <canvas id="canvas" width="600" height="600"></canvas>
-    <span id="whoWin"></span>
-    <p id="whoMove">Ваш ход</p>
+    <div class="cs">
+        <canvas id="canvas" width="600" height="600"></canvas>
+        <div id="cc">
+            <span id="whoWin"></span>
+        </div>
+        <p id="whoMove">Ваш ход</p>
+    </div>
+    <div class="ce">
+        <p id="statistics">Статистика игр.</p>
+        <hr>
+        <p id="playerWin">Кол-во ваших побед: <span id="PlayerWins">0</span></p>
+        <hr>
+        <p id="botWin">Кол-во ваших поражений: <span id="BotWins">0</span></p>
+        <hr>
+        <p id="notWin">Кол-во игр в ничью: <span id="NotWin">0</span></p>
+    </div>
     <script src="js/jquery-3.4.1.min.js" defer></script>
     <script src="js/script.js" defer></script>
     <script src="js/player.js" defer></script>

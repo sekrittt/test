@@ -6,6 +6,17 @@ var winer = false;
 var rs = 0;
 var ct = 0;
 var cc = 0;
+if (localStorage.getItem("KN_WINS_PLAYER") == undefined && localStorage.getItem("KN_LOSE_PLAYER") == undefined && localStorage.getItem("KN_NOT_WIN") == undefined) {
+    localStorage.setItem("KN_WINS_PLAYER", 0);
+    localStorage.setItem("KN_LOSE_PLAYER", 0);
+    localStorage.setItem("KN_NOT_WIN", 0);
+}
+$("#PlayerWins")[0].innerText = localStorage.getItem("KN_WINS_PLAYER");
+$("#BotWins")[0].innerText = localStorage.getItem("KN_LOSE_PLAYER");
+$("#NotWin")[0].innerText = localStorage.getItem("KN_NOT_WIN");
+var botwins = localStorage.getItem("KN_LOSE_PLAYER")*1;
+var playerwins = localStorage.getItem("KN_WINS_PLAYER")*1;
+var notwins = localStorage.getItem("KN_NOT_WIN")*1;
 ctx.strokeStyle = "blue";
 ctx.fillStyle = "blue";
 var cells = [
@@ -85,12 +96,15 @@ function drawFinishLine(xStart, yStart, xEnd, yEnd) {
 }
 
 function printWhoWin(name) {
-    if (name == "Вы") {
+    if (name == "Вы" && playerwins == Number(localStorage.getItem("KN_WINS_PLAYER"))) {
         $("#whoWin")[0].innerText = name+" победили!";
-    } else if (name == "Бот") {
+        localStorage.setItem("KN_WINS_PLAYER", Number(localStorage.getItem("KN_WINS_PLAYER"))+1);
+    } else if (name == "Бот" && botwins == Number(localStorage.getItem("KN_LOSE_PLAYER"))) {
         $("#whoWin")[0].innerText = name+" победил!";
-    } else {
+        localStorage.setItem("KN_LOSE_PLAYER", Number(localStorage.getItem("KN_LOSE_PLAYER"))+1);
+    } else if (name == "Ничья!" && notwins == Number(localStorage.getItem("KN_NOT_WIN"))) {
         $("#whoWin")[0].innerText = name;
+        localStorage.setItem("KN_NOT_WIN", Number(localStorage.getItem("KN_NOT_WIN"))+1);
     }
     winer = true;
     setTimeout(()=>{
@@ -118,7 +132,7 @@ setInterval(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
-        }, 2000)
+        }, 1000)
     } else if (cells[0][0][1] == 0 && cells[0][1][1] == 0 && cells[0][2][1] == 0) { // row 0
         printWhoWin("Бот")
         drawFinishLine(100, 100, 500, 500);
@@ -126,7 +140,7 @@ setInterval(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
-        }, 2000)
+        }, 1000)
     } else if (cells[1][0][1] == 1 && cells[1][1][1] == 1 && cells[1][2][1] == 1) { // row 1
         printWhoWin("Вы")
         drawFinishLine(100, 300, 500, 300);
@@ -134,7 +148,7 @@ setInterval(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
-        }, 2000)
+        }, 1000)
     } else if (cells[1][0][1] == 0 && cells[1][1][1] == 0 && cells[1][2][1] == 0) { // row 1
         printWhoWin("Бот")
         drawFinishLine(100, 300, 500, 300);
@@ -142,7 +156,7 @@ setInterval(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
-        }, 2000)
+        }, 1000)
     } else if (cells[2][0][1] == 1 && cells[2][1][1] == 1 && cells[2][2][1] == 1) { // row 2
         printWhoWin("Вы")
         drawFinishLine(100, 500, 500, 500);
@@ -150,7 +164,7 @@ setInterval(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
-        }, 2000)
+        }, 1000)
     } else if (cells[2][0][1] == 0 && cells[2][1][1] == 0 && cells[2][2][1] == 0) { // row 2
         printWhoWin("Бот")
         drawFinishLine(100, 500, 500, 500);
@@ -158,7 +172,7 @@ setInterval(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
-        }, 2000)
+        }, 1000)
     } else if (cells[0][0][1] == 1 && cells[1][0][1] == 1 && cells[2][0][1] == 1) { // column 0
         printWhoWin("Вы")
         drawFinishLine(100, 100, 100, 500);
@@ -166,7 +180,7 @@ setInterval(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
-        }, 2000)
+        }, 1000)
     } else if (cells[0][0][1] == 0 && cells[1][0][1] == 0 && cells[2][0][1] == 0) { // column 0
         printWhoWin("Бот")
         drawFinishLine(100, 100, 100, 500);
@@ -174,7 +188,7 @@ setInterval(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
-        }, 2000)
+        }, 1000)
     } else if (cells[0][1][1] == 1 && cells[1][1][1] == 1 && cells[2][1][1] == 1) { // column 1
         printWhoWin("Вы")
         drawFinishLine(300, 100, 300, 500);
@@ -182,7 +196,7 @@ setInterval(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
-        }, 2000)
+        }, 1000)
     } else if (cells[0][1][1] == 0 && cells[1][1][1] == 0 && cells[2][1][1] == 0) { // column 1
         printWhoWin("Бот")
         drawFinishLine(300, 100, 300, 500);
@@ -190,7 +204,7 @@ setInterval(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
-        }, 2000)
+        }, 1000)
     } else if (cells[0][2][1] == 1 && cells[1][2][1] == 1 && cells[2][2][1] == 1) { // column 2
         printWhoWin("Вы")
         drawFinishLine(500, 100, 500, 500);
@@ -198,7 +212,7 @@ setInterval(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
-        }, 2000)
+        }, 1000)
     } else if (cells[0][2][1] == 0 && cells[1][2][1] == 0 && cells[2][2][1] == 0) { // column 2
         printWhoWin("Бот")
         drawFinishLine(500, 100, 500, 500);
@@ -206,7 +220,7 @@ setInterval(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
-        }, 2000)
+        }, 1000)
     } else if (cells[0][0][1] == 1 && cells[1][1][1] == 1 && cells[2][2][1] == 1) { // diagonal 0, 1, 2
         printWhoWin("Вы")
         drawFinishLine(100, 100, 500, 500);
@@ -214,7 +228,7 @@ setInterval(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
-        }, 2000)
+        }, 1000)
     } else if (cells[0][0][1] == 0 && cells[1][1][1] == 0 && cells[2][2][1] == 0) { // diagonal 0, 1, 2
         printWhoWin("Бот")
         drawFinishLine(100, 100, 500, 500);
@@ -222,7 +236,7 @@ setInterval(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
-        }, 2000)
+        }, 1000)
     } else if (cells[2][0][1] == 1 && cells[1][1][1] == 1 && cells[0][2][1] == 1) { // diagonal 2, 1, 0
         printWhoWin("Вы")
         drawFinishLine(500, 100, 100, 500);
@@ -230,7 +244,7 @@ setInterval(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
-        }, 2000)
+        }, 1000)
     } else if (cells[2][0][1] == 0 && cells[1][1][1] == 0 && cells[0][2][1] == 0) { // diagonal 2, 1, 0
         printWhoWin("Бот")
         drawFinishLine(500, 100, 100, 500);
@@ -238,20 +252,8 @@ setInterval(()=>{
             ctx.clearRect(0, 0, 600, 600);
             drawCell();
             clearCells();
-        }, 2000)
+        }, 1000)
     }
-    // i2 = 0;
-    // for (let i = 0; i < cells.length-1; i++) {
-    //     for (let j = 0; j < cells[i].length-1; j++) {
-    //         if(cells[i][j][1] !== 2){
-    //             i2++;
-    //         }
-    //     }
-    // }
-    // if (i2 == 9 && !winer) {
-    //     printWhoWin("Ничья");
-    //     winer = true;
-    // } else 
     if (borp == 0 && !winer){
         $("#whoMove")[0].innerText = "Бот ходит";
     } else if (borp == 1 && !winer){

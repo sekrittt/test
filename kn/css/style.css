@@ -4,17 +4,36 @@
 }
 body{
     padding: 20px;
-    display: flex;
-    justify-content: center;
-    position: relative;
     color: blue;
     background: url("../img/bg.jpg");
+}
+.cs {
+    display: flex;
+    justify-content: start;
+}
+.cc{
+    display: flex;
+    justify-content: center;
+}
+.ce {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: 2px solid black;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.ce>#statistics{
+    text-align: center;
 }
 canvas{
     width: 600px;
     height: 600px;
 }
-span{
+span#whoWin{
     position: absolute;
     margin-top: 250px;
     font-size: 72px;
@@ -23,7 +42,7 @@ span{
     color: green;
     background-color: #fff;
 }
-p{
+p#whoMove{
     font-size: 72px;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
