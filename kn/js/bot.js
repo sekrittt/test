@@ -3,9 +3,9 @@ var c = 0;
 var times = [];
 var circles = [];
 var movesBot = 0;
-function botMove() {
+function checkCells() {
     times = [];
-    movesBot = 0;
+    circles = [];
     for (let i = 0; i < cells.length; i++) {
         for (let j = 0; j < cells[i].length; j++) {
             if (cells[i][j][0] == 1) {
@@ -17,6 +17,12 @@ function botMove() {
             }
         }
     }
+}
+function botMove() {
+    times = [];
+    movesBot = 0;
+    checkCells();
+    ic = circles.length;
     // if (circles.length > 1) {
         for (let i = 0; i < circles.length; i++) {
             if (circles[i+1] !== undefined) {
@@ -126,12 +132,17 @@ function botMove() {
                                 }
                             }
                         }
+                    } else {
+                        randomMove()
                     }
                 }
             }
         }
-    } 
-    if(times.length == 1 && movesBot == 0) {
+    }
+    console.log(movesBot);
+    checkCells();
+    ic2 = circles.length;
+    if((times.length == 1 || ic == ic2) && movesBot == 0) {
         randomMove();
         movesBot = 1;
     }
