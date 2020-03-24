@@ -6,6 +6,8 @@ var winer = false;
 var rs = 0;
 var ct = 0;
 var cc = 0;
+ctx.strokeStyle = "blue";
+ctx.fillStyle = "blue";
 var cells = [
     [
         [0, 2], // column 1

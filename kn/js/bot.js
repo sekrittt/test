@@ -50,6 +50,54 @@ function botMove() {
                             }
                         }
                     }
+                } else if (cells[circles[i][1]][circles[i][2]][1] == 1) {
+                    if (circles[i][1] == 0 && circles[i][2] == 2) { // top-ringht angle
+                        for (let r = 0, c = 2; r < cells.length; r++, c--) {
+                            if (cells[r][c] !== undefined) {
+                                if (cells[c][r][0] == 0 && cells[c][r][1] == 2 && movesBot == 0) {
+                                    cells[c][r][0] = 1;
+                                    cells[c][r][1] = 0;
+                                    drawCircle(sizeCells[c][r]);
+                                    movesBot = 1;
+                                }
+                            }
+                        }
+                    } else if (circles[i][1] == 0 && circles[i][2] == 0) { // top-left angle
+                        for (let r = 0, c = 0; r < cells.length; r++, c++) {
+                            if (cells[r][c] !== undefined) {
+                                if (cells[r][c][0] == 0 && cells[r][c][1] == 2 && movesBot == 0) {
+                                    cells[r][c][0] = 1;
+                                    cells[r][c][1] = 0;
+                                    drawCircle(sizeCells[r][c]);
+                                    movesBot = 1;
+                                }
+                            }
+                        }
+                    } else if (circles[i][1] == 1 && circles[i][2] == 1) { // bottom-right angle
+                        if (circles[i+1][1] == 2 && circles[i+1][2] == 0) {
+                            for (let r = 2, c = 0; r >= 0; r--, c++) {
+                                if (cells[r][c] !== undefined) {
+                                    if (cells[r][c][0] == 0 && cells[r][c][1] == 2 && movesBot == 0) {
+                                        cells[r][c][0] = 1;
+                                        cells[r][c][1] = 0;
+                                        drawCircle(sizeCells[r][c]);
+                                        movesBot = 1;
+                                    }
+                                }
+                            }
+                        } else if (circles[i+1][1] == 2 && circles[i+1][2] == 2) {
+                            for (let r = 2, c = 2; r >= 0; r--, c--) {
+                                if (cells[r][c] !== undefined) {
+                                    if (cells[r][c][0] == 0 && cells[r][c][1] == 2 && movesBot == 0) {
+                                        cells[r][c][0] = 1;
+                                        cells[r][c][1] = 0;
+                                        drawCircle(sizeCells[r][c]);
+                                        movesBot = 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -81,11 +129,7 @@ function botMove() {
                             }
                         }
                     }
-                }
-                 else if (cells[times[i][1]][times[i][2]][1] == 1) {
-                    if ((times[i][1] == 1 && times[i][2] == 2) || (times[i][1] == 1 && times[i][2] == 0) || (times[i][1] == 0 && times[i][2] == 1) ) {
-                        randomMove();
-                    }
+                } else if (cells[times[i][1]][times[i][2]][1] == 1) {
                     if (times[i][1] == 0 && times[i][2] == 2) { // top-ringht angle
                         for (let r = 0, c = 2; r < cells.length; r++, c--) {
                             if (cells[r][c] !== undefined) {
@@ -132,8 +176,6 @@ function botMove() {
                                 }
                             }
                         }
-                    } else {
-                        randomMove()
                     }
                 }
             }

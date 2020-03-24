@@ -7,11 +7,12 @@ body{
     display: flex;
     justify-content: center;
     position: relative;
+    color: blue;
+    background: url("../img/bg.jpg");
 }
 canvas{
     width: 600px;
     height: 600px;
-    border: 5px solid black;
 }
 span{
     position: absolute;
