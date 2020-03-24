@@ -181,7 +181,6 @@ function botMove() {
             }
         }
     }
-    console.log(movesBot);
     checkCells();
     ic2 = circles.length;
     if((times.length == 1 || ic == ic2) && movesBot == 0) {

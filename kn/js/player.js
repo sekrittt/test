@@ -94,6 +94,12 @@ function playerMove (e) {
     }
     if (!winer) {
         $("#canvas").off("click", playerMove);
-        setTimeout(()=>{botMove();},2000)
+        setTimeout(()=>{
+            try {
+                botMove();
+            } catch (e) {
+                printWhoWin("Ничья!");
+            }
+        },2000)
     }
 }
