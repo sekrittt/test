@@ -17,6 +17,37 @@ function botMove() {
             }
         }
     }
+    // if (circles.length > 1) {
+        for (let i = 0; i < circles.length; i++) {
+            if (circles[i+1] !== undefined) {
+                if (circles[i][1] == circles[i+1][1]) {
+                    // console.log("test1");
+                    for (let k = 0; k < cells[circles[i][1]].length; k++) {
+                        if (cells[circles[i][1]][k][0] !== undefined) {
+                            if (cells[circles[i][1]][k][0] == 0 && cells[circles[i][1]][k][1] == 2 && movesBot == 0) {
+                                cells[circles[i][1]][k][0] = 1;
+                                cells[circles[i][1]][k][1] = 0;
+                                drawCircle(sizeCells[circles[i][1]][k]);
+                                movesBot = 1;
+                            }
+                        }
+                    }
+                } else if (circles[i][2] == circles[i+1][2]) {
+                    // console.log("test2");
+                    for (let k = 0; k < cells.length; k++) {
+                        if (cells[k][circles[i][2]][0] !== undefined) {
+                            if (cells[k][circles[i][2]][0] == 0 && cells[k][circles[i][2]][1] == 2 && movesBot == 0) {
+                                cells[k][circles[i][2]][0] = 1;
+                                cells[k][circles[i][2]][1] = 0;
+                                drawCircle(sizeCells[k][circles[i][2]]);
+                                movesBot = 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    // }
     if (times.length > 1) {
         for (let i = 0; i < times.length; i++) {
             if (times[i+1] !== undefined) {
@@ -44,67 +75,80 @@ function botMove() {
                             }
                         }
                     }
-                } else if ((times[i][1] !== times[i+1][1]) && (times[i][2] !== times[i+1][2]) && movesBot == 0){
-                    randomMove();
-                    movesBot = 1;
                 }
-            }
-        }
-    } else if(times.length == 1 && movesBot == 0) {
-        randomMove();
-        movesBot = 1;
-    }
-
-    if (circles.length > 1) {
-        for (let i = 0; i < circles.length; i++) {
-            if (circles[i+1] !== undefined) {
-                if (circles[i][1] == circles[i+1][1]) {
-                    // console.log("test1");
-                    for (let k = 0; k < cells[circles[i][1]].length; k++) {
-                        if (cells[circles[i][1]][k][0] !== undefined) {
-                            if (cells[circles[i][1]][k][0] == 0 && cells[circles[i][1]][k][1] == 2 && movesBot == 0) {
-                                cells[circles[i][1]][k][0] = 1;
-                                cells[circles[i][1]][k][1] = 0;
-                                drawCircle(sizeCells[circles[i][1]][k]);
-                                movesBot = 1;
+                 else if (cells[times[i][1]][times[i][2]][1] == 1) {
+                    if ((times[i][1] == 1 && times[i][2] == 2) || (times[i][1] == 1 && times[i][2] == 0) || (times[i][1] == 0 && times[i][2] == 1) ) {
+                        randomMove();
+                    }
+                    if (times[i][1] == 0 && times[i][2] == 2) { // top-ringht angle
+                        for (let r = 0, c = 2; r < cells.length; r++, c--) {
+                            if (cells[r][c] !== undefined) {
+                                if (cells[c][r][0] == 0 && cells[c][r][1] == 2 && movesBot == 0) {
+                                    cells[c][r][0] = 1;
+                                    cells[c][r][1] = 0;
+                                    drawCircle(sizeCells[c][r]);
+                                    movesBot = 1;
+                                }
+                            }
+                        }
+                    } else if (times[i][1] == 0 && times[i][2] == 0) { // top-left angle
+                        for (let r = 0, c = 0; r < cells.length; r++, c++) {
+                            if (cells[r][c] !== undefined) {
+                                if (cells[r][c][0] == 0 && cells[r][c][1] == 2 && movesBot == 0) {
+                                    cells[r][c][0] = 1;
+                                    cells[r][c][1] = 0;
+                                    drawCircle(sizeCells[r][c]);
+                                    movesBot = 1;
+                                }
+                            }
+                        }
+                    } else if (times[i][1] == 1 && times[i][2] == 1) { // bottom-right angle
+                        if (times[i+1][1] == 2 && times[i+1][2] == 0) {
+                            for (let r = 2, c = 0; r >= 0; r--, c++) {
+                                if (cells[r][c] !== undefined) {
+                                    if (cells[r][c][0] == 0 && cells[r][c][1] == 2 && movesBot == 0) {
+                                        cells[r][c][0] = 1;
+                                        cells[r][c][1] = 0;
+                                        drawCircle(sizeCells[r][c]);
+                                        movesBot = 1;
+                                    }
+                                }
+                            }
+                        } else if (times[i+1][1] == 2 && times[i+1][2] == 2) {
+                            for (let r = 2, c = 2; r >= 0; r--, c--) {
+                                if (cells[r][c] !== undefined) {
+                                    if (cells[r][c][0] == 0 && cells[r][c][1] == 2 && movesBot == 0) {
+                                        cells[r][c][0] = 1;
+                                        cells[r][c][1] = 0;
+                                        drawCircle(sizeCells[r][c]);
+                                        movesBot = 1;
+                                    }
+                                }
                             }
                         }
                     }
-                } else if (circles[i][2] == circles[i+1][2]) {
-                    // console.log("test2");
-                    for (let k = 0; k < cells.length; k++) {
-                        if (cells[k][circles[i][2]][0] !== undefined) {
-                            if (cells[k][circles[i][2]][0] == 0 && cells[k][circles[i][2]][1] == 2 && movesBot == 0) {
-                                cells[k][circles[i][2]][0] = 1;
-                                cells[k][circles[i][2]][1] = 0;
-                                drawCircle(sizeCells[k][circles[i][2]]);
-                                movesBot = 1;
-                            }
-                        }
-                    }
-                } else if ((circles[i][1] !== circles[i+1][1]) && (circles[i][2] !== circles[i+1][2]) && movesBot == 0){
-                    randomMove();
-                    movesBot = 1;
                 }
             }
         }
-    } else if(circles.length == 1 && movesBot == 0) {
+    } 
+    if(times.length == 1 && movesBot == 0) {
         randomMove();
         movesBot = 1;
     }
     borp = 1;
     $("#canvas").on("click", playerMove);
 }
-
+ii = 0;
 function randomMove() {
-        row = Math.floor(Math.random() * 3);
-        col = Math.floor(Math.random() * 3);
-        console.log(cells[row][col][0]);
-        if (cells[row][col][0] == 0 && cells[row][col][1] == 2) {
-            cells[row][col][0] = 1;
-            cells[row][col][1] = 0;
-            drawCircle(sizeCells[row][col]);
-        } else {
-            randomMove();
-        }
+    row = Math.floor(Math.random() * 3);
+    col = Math.floor(Math.random() * 3);
+    if (cells[row][col][0] == 0 && cells[row][col][1] == 2 && ii !== 9) {
+        cells[row][col][0] = 1;
+        cells[row][col][1] = 0;
+        drawCircle(sizeCells[row][col]);
+        ii = 0;
+    } else {
+        ii++;
+        randomMove();
+    }
 }
