@@ -80,9 +80,13 @@ function printWhoWin(name) {
         $("#whoWin")[0].innerText = name+" победили!";
     } else if (name == "Бот") {
         $("#whoWin")[0].innerText = name+" победил!";
+    } else {
+        $("#whoWin")[0].innerText = name;
     }
     winer = true;
-    location.href = location.href;
+    setTimeout(()=>{
+        location.href = location.href;
+    }, 1000)
 }
 
 drawCell();
@@ -210,6 +214,11 @@ setInterval(()=>{
             drawCell();
             clearCells();
         }, 2000)
+    }
+    i = 0;
+    if (i == 9 && !winer) {
+        printWhoWin("Ничья");
+        winer = true;
     }
     if (borp == 0 && !winer){
         $("#whoMove")[0].innerText = "Бот ходит";

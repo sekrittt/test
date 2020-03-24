@@ -20,6 +20,7 @@ span{
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
     color: green;
+    background-color: #fff;
 }
 p{
     font-size: 72px;

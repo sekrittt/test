@@ -136,6 +136,7 @@ function botMove() {
         movesBot = 1;
     }
     borp = 1;
+    i++;
     $("#canvas").on("click", playerMove);
 }
 ii = 0;
