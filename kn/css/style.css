@@ -14,10 +14,11 @@ body{
 .cc{
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 .ce {
     position: absolute;
-    top: 20px;
+    top: 100px;
     right: 20px;
     border: 2px solid black;
     font-family: 'Courier New', Courier, monospace;
@@ -32,6 +33,7 @@ body{
 canvas{
     width: 600px;
     height: 600px;
+    margin-left: 100px;
 }
 span#whoWin{
     position: absolute;
@@ -43,7 +45,36 @@ span#whoWin{
     background-color: #fff;
 }
 p#whoMove{
-    font-size: 72px;
+    font-size: 64px;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
+    width: 100%;
+}
+
+@media screen and (max-width: 1060px){
+    .ce{
+        top: 100px;
+    }
+    canvas{
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 1040px){
+    .ce{
+        position: relative;
+        top: 0;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    body{
+        padding: 20px 5px 5px 20px;
+    }
+}
+
+@media screen and (max-width: 660px){
+    canvas{
+        width: 100%;
+        height: auto;
+    }
 }

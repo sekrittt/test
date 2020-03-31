@@ -3,6 +3,7 @@ var c = 0;
 var times = [];
 var circles = [];
 var movesBot = 0;
+var net = null;
 function checkCells() {
     times = [];
     circles = [];
@@ -23,11 +24,9 @@ function botMove() {
     movesBot = 0;
     checkCells();
     ic = circles.length;
-    // if (circles.length > 1) {
         for (let i = 0; i < circles.length; i++) {
             if (circles[i+1] !== undefined) {
                 if (circles[i][1] == circles[i+1][1]) {
-                    // console.log("test1");
                     for (let k = 0; k < cells[circles[i][1]].length; k++) {
                         if (cells[circles[i][1]][k][0] !== undefined) {
                             if (cells[circles[i][1]][k][0] == 0 && cells[circles[i][1]][k][1] == 2 && movesBot == 0) {
@@ -39,7 +38,6 @@ function botMove() {
                         }
                     }
                 } else if (circles[i][2] == circles[i+1][2]) {
-                    // console.log("test2");
                     for (let k = 0; k < cells.length; k++) {
                         if (cells[k][circles[i][2]][0] !== undefined) {
                             if (cells[k][circles[i][2]][0] == 0 && cells[k][circles[i][2]][1] == 2 && movesBot == 0) {
@@ -101,12 +99,10 @@ function botMove() {
                 }
             }
         }
-    // }
     if (times.length > 1) {
         for (let i = 0; i < times.length; i++) {
             if (times[i+1] !== undefined) {
                 if (times[i][1] == times[i+1][1]) {
-                    // console.log("test1");
                     for (let k = 0; k < cells[times[i][1]].length; k++) {
                         if (cells[times[i][1]][k][0] !== undefined) {
                             if (cells[times[i][1]][k][0] == 0 && cells[times[i][1]][k][1] == 2 && movesBot == 0) {
@@ -118,7 +114,6 @@ function botMove() {
                         }
                     }
                 } else if (times[i][2] == times[i+1][2]) {
-                    // console.log("test2");
                     for (let k = 0; k < cells.length; k++) {
                         if (cells[k][times[i][2]][0] !== undefined) {
                             if (cells[k][times[i][2]][0] == 0 && cells[k][times[i][2]][1] == 2 && movesBot == 0) {

@@ -1,6 +1,7 @@
 $("#canvas").on("click", playerMove);
 function playerMove (e) {
-    // console.log("X: "+e.offsetX+", Y: "+e.offsetY);
+    console.log("X: "+e.offsetX+", Y: "+e.offsetY);
+    if (window.screen.width >= 600) {
     if (e.offsetX < 200 && e.offsetX > 0 && e.offsetY > 0 && e.offsetY < 200) { // 1
         if (cells[0][0][0] !== 1) {
             cells[0][0][0] = 1;
@@ -92,6 +93,10 @@ function playerMove (e) {
             console.error("Error this cell is already filled!")
         }
     }
+        
+    } else {
+        
+    }
     if (!winer) {
         $("#canvas").off("click", playerMove);
         setTimeout(()=>{
@@ -99,6 +104,7 @@ function playerMove (e) {
                 botMove();
             } catch (e) {
                 printWhoWin("Ничья!");
+                console.error(e);
             }
         },2000)
     }
