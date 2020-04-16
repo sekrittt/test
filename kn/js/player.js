@@ -101,7 +101,7 @@ function playerMove (e) {
         $("#canvas").off("click", playerMove);
         setTimeout(()=>{
             try {
-                botMove();
+                botcMove();
             } catch (e) {
                 printWhoWin("Ничья!");
                 console.error(e);

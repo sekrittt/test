@@ -35,7 +35,7 @@ function handler(task) {
         } else if (task.search("найти") !== -1 || task.search("найди") !== -1 || task.search("ищи") !== -1 || task.search("поищи") !== -1 || task.search("find") !== -1 || (task.search("займись") !== -1 && task.search("поиском") !== -1) || task.search("поиск") !== -1) {
             answer = search(task)
         } else if (task.search("покажи") !== -1 || task.search("скажи") !== -1 || task.search("батаре") !== -1) {
-            answer = getInfoBattery(task);
+            answer = getBatteryInfo(task);
         } else if ((task.search("обнови") !== -1 || task.search("перезагрузи") !== -1) && task.search("страницу") !== -1) {
             answer = "Секунду";
             setTimeout(()=>{location.href=location.href},2000)

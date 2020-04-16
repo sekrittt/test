@@ -257,7 +257,7 @@ setInterval(()=>{
     if (borp == 0 && !winer){
         $("#whoMove")[0].innerText = "Бот ходит";
     } else if (borp == 1 && !winer){
-        $("#whoMove")[0].innerText = "Ваш ход";
+        $("#whoMove")[0].innerText = "Вы ходите";
     } else if (winer){
         winer = false;
         borp = 1;
