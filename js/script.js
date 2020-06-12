@@ -44,11 +44,11 @@ recognizer.onend = () => {
 function speech() {
   recognizer.start();
 }
-setTimeout(() => {
+window.onload = () => {
     greeting = greetings[Math.floor(Math.random() * greetings.length)]
     addMessage(greeting, "system");
     talk(greeting);
-}, 1000);
+};
 
 document.onkeydown = (e) => {
     if (e.keyCode == 32) {
